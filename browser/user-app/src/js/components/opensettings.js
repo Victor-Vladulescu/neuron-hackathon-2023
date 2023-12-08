@@ -13,3 +13,9 @@ document.getElementById('openSettings').addEventListener('click', openSettings);
 document
   .getElementById('closeSettings')
   .addEventListener('click', openSettings);
+
+document
+  .getElementById('openSettings2')
+  .addEventListener('click', openSettings);
+
+// openSettings2
