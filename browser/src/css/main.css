@@ -154,6 +154,7 @@ body {
 }
 
 .button--primary-blue {
+  transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   color: #fff;
   background-color: #0099ff;
@@ -161,6 +162,9 @@ body {
   border-radius: 4px;
   padding: 10px 30px;
   box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.25);
+}
+.button--primary-blue:hover, .button--primary-blue:focus {
+  background-color: #007ec5;
 }
 
 .screen-map {
@@ -492,4 +496,8 @@ body {
   margin-bottom: 4px;
   vertical-align: middle;
   color: #8f8f8f;
+}
+
+a {
+  cursor: pointer;
 }
