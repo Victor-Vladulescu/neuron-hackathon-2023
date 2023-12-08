@@ -1,0 +1,11 @@
+# Virtual Environment
+.venv
+
+# VS Code config
+.vscode
+
+# Python caches
+__pycache__
+
+# Credentials
+credentials.txt
