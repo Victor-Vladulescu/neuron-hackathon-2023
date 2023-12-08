@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+       
+        <meta http-equiv="Content-Security-Policy" content="*">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>GPS tracker</title>
+    </head>
+    <body>
+        <div class="column">
+            <h2>Current location</h2>
+            <p id="lat">Latitude: </p>
+            <p id="long">Longitude: </p>
+        </div>
+        <br>
+        <div class="column">
+            <label for="tram-select">Send location for which tram ID?</label>
+            <input id="tram-select" name="tram-select" type="text">
+            <button id="state-btn" onclick="toggleSendLocation()">Send location</button>
+        </div>
+
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
