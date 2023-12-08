@@ -1,0 +1,165 @@
+.profile {
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  height: 100vh;
+  width: 100%;
+
+  // Profile hero section, clickable
+  &__hero-section {
+    $img-size: 122px;
+    $ring-padding: 10px;
+    $border-size: 1px;
+
+    background: #6ec3fa url('../img/large-profile-background.jpg') repeat-x;
+    background-size: cover;
+    @media screen and (min-width: 425px) {
+      background-size: contain;
+    }
+
+    @include flex(column, center, center);
+    width: 100%;
+    height: 43%;
+
+    // Image and its effects
+    &__image {
+      &-shadow {
+        display: flex;
+        justify-content: center;
+
+        background-image: linear-gradient(
+          180deg,
+          #09f 0%,
+          rgba(93, 185, 246, 0.01) 0.01%,
+          #95d5ff 150%
+        );
+
+        // size is 35% bigger than the size of the image
+        width: calc($img-size * 135 / 100);
+        height: calc($img-size * 135 / 100);
+
+        border-radius: $img-size;
+      }
+
+      &-ring {
+        position: relative;
+
+        width: calc($img-size + $ring-padding);
+        height: calc($img-size + $ring-padding);
+
+        border: $border-size solid $secondary-blue;
+        border-radius: $img-size;
+
+        padding: $ring-padding;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+
+          width: $img-size;
+          height: $img-size;
+
+          border-radius: $img-size;
+        }
+      }
+    }
+
+    // Caption text
+    &__caption {
+      text-align: center;
+      font-size: 20px;
+
+      margin-top: 20px;
+
+      a,
+      a:visited {
+        color: #000;
+        text-decoration: none;
+        font-weight: 700;
+
+        h2 {
+          display: inline;
+        }
+
+        svg {
+          margin-right: 8px;
+          margin-bottom: 5px;
+          vertical-align: middle;
+        }
+
+        &:hover,
+        &:focus {
+          color: #000;
+        }
+      }
+    }
+
+    // Clickable profile
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  &__settings {
+    @include flex(column, space-between, flex-start);
+    height: 57%;
+
+    > ul:nth-child(1) {
+      @include flex(column, flex-start, flex-start);
+      gap: 25px;
+      font-size: 14px;
+      margin-left: 16%;
+      margin-top: 30px;
+
+      li {
+        a {
+          color: #000;
+          text-decoration: none;
+          line-height: normal;
+
+          h2 {
+            font-weight: 700;
+            margin-bottom: 15px;
+          }
+
+          svg {
+            color: $svg-secondary;
+            vertical-align: middle;
+
+            margin-right: 8px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+
+    > ul:nth-child(2) {
+      @include flex(row, space-between, center);
+      width: 85%;
+
+      font-size: 14px;
+
+      margin-bottom: 45px;
+      margin-left: 35px;
+
+      a {
+        color: #000;
+        text-decoration: none;
+
+        svg {
+          margin-right: 8px;
+          margin-bottom: 4px;
+          vertical-align: middle;
+
+          color: $svg-secondary;
+        }
+      }
+    }
+  }
+}
