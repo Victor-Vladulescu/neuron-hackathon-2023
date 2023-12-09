@@ -1,23 +1,35 @@
 // Find the checkbox input
 const locationCheckbox = document.getElementById("locationCheckbox");
 
-function openChange() {
-  // Find the label element that contains the pseudo-element after
-  const button = document.getElementById("locationStatus");
+// Find the text next to the input FIXME
+const locationStatusText = document.getElementById("locationStatusText");
 
+// Find the vehicle id select element FIXME
+const vehicleId = document.getElementById("vehicleId");
+
+// Find the vehicle ID in order to delete its value if location is disabled
+const selectElement = document.getElementById("vehicleId");
+
+function openChange() {
   // If input is checked
   if (locationCheckbox.checked) {
-    console.log("Hello from Florin1");
-    //   Set after to "Activated"
-    button.setAttribute("data-value", "ACTIVAT");
+    //   Set to "Activated"
+    locationStatusText.innerText = "ACTIVAT";
+    locationStatusText.classList.toggle("blue");
+    vehicleId.disabled = !vehicleId.disabled;
   } else {
-    console.log("Hello from Florin2");
-    //   Otherwise set after to "Dectivated"
-    button.setAttribute("data-value", "DEZACTIVAT");
+    //   Otherwise set to "Dectivated"
+    locationStatusText.innerText = "DEZACTIVAT";
+    locationStatusText.classList.toggle("blue");
+    vehicleId.disabled = !vehicleId.disabled;
   }
 }
 
 // Only run the function on change of checkbox input
 locationCheckbox.addEventListener("change", () => {
   openChange();
+
+  if (locationStatusText.innerText === "DEZACTIVAT") {
+    selectElement.value = "";
+  }
 });
