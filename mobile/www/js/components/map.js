@@ -1,22 +1,51 @@
-import { map } from '../index';
+import { map } from '../index.js';
 
-import { baseURL } from '../index';
+import { baseURL } from '../index.js';
 
-someArray = [];
-vehicles = [];
-var markers = L.layerGroup().addTo(map);
 
-let tramIcon = L.icon({
-  iconUrl: require('../../img/orange-circle.png'),
-  iconSize: [14, 14], // size of the icon
-  iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
-});
+let someArray = [];
+let vehicles = [];
+var markers 
 
-let tram = L.marker([46.192717706185675, 21.30671085657869], {
-  icon: tramIcon,
-});
+let tramIcon 
 
-tram.bindTooltip();
+let tram 
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  markers = L.layerGroup().addTo(map);
+
+  tramIcon = L.icon({
+    iconUrl: '../../img/orange-circle.png',
+    iconSize: [14, 14], // size of the icon
+    iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+  });
+
+  tram = L.marker([46.192717706185675, 21.30671085657869], {
+    icon: tramIcon,
+  });
+
+  tram.bindTooltip();
+
+  setInterval(someRequest, 1000);
+
+  L.tileLayer(
+    'https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}',
+    {
+      minZoom: 0,
+      maxZoom: 18,
+      ext: 'png',
+    }
+  ).addTo(map);
+
+})
+
+
+
+
+
 
 function updateLocation() {
   if (someArray.length > 0) {
@@ -70,13 +99,3 @@ function someRequest() {
   updateLocation();
 }
 
-setInterval(someRequest, 1000);
-
-L.tileLayer(
-  'https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}',
-  {
-    minZoom: 0,
-    maxZoom: 18,
-    ext: 'png',
-  }
-).addTo(map);
