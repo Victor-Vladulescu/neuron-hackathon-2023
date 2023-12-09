@@ -1,17 +1,12 @@
-// FIXME Fake Position Template FIXME
-const currentPosition = {
-  id: 0,
-  coords: {
-    latitude: 123,
-    longitude: 321,
-  },
-  timestamp: "2023-12-01T11:01:00.123Z",
-};
+import { currentLocation, baseURL } from "../index.js";
 
 // Vehicle ID Select Input
+const locationButton = document.getElementById("locationCheckbox");
 const selectElement = document.getElementById("vehicleId");
 
 var newValueMine;
+var sendLocationInterval
+var btnState = false
 
 // Send the selected input function
 function sendOption() {
@@ -28,15 +23,22 @@ function sendOption() {
 }
 
 // Run the function on each change of the input
-selectElement.addEventListener("change", () => {
+locationButton.addEventListener("change", () => {
   sendOption();
 
-  setInterval(sendLocation(), 1000);
+  if (btnState) {
+    btnState = false
+    clearInterval(sendLocationInterval)
+  }
+  else {
+    btnState = true
+    sendLocationInterval = setInterval(() => sendLocation(), 2500);
+  }
 });
 
 function sendLocation() {
   fetch(
-    "http://uav-easy-exams.xyz:5000/api/vehicle/" + newValueMine + "/update",
+    baseURL + "/vehicle/" + newValueMine + "/update",
     {
       method: "PUT",
       headers: {
@@ -44,8 +46,8 @@ function sendLocation() {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
-        latitude: currentPosition.coords.latitude,
-        longitude: currentPosition.coords.longitude,
+        latitude: currentLocation.coords.latitude,
+        longitude: currentLocation.coords.longitude,
         timestamp: new Date().toISOString(),
       }),
     }
