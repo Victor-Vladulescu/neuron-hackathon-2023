@@ -17,5 +17,3 @@ document
 document
   .getElementById('openSettings2')
   .addEventListener('click', openSettings);
-
-// openSettings2
