@@ -268,7 +268,7 @@
 
         input {
           &:checked + .slider {
-            background-color: #2196f3;
+            background-color: #21313f;
           }
 
           &:focus + .slider {
@@ -282,10 +282,10 @@
           }
         }
 
-        &::after {
-          content: 'ACTIVAT';
+        & ::after {
+          content: attr(data-after);
           font-weight: 700;
-          color: #2196f3;
+          color: #271a1a;
           position: absolute;
           left: 36;
         }

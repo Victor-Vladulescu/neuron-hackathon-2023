@@ -603,7 +603,7 @@ body {
   border-radius: 50%;
 }
 .profile__settings--vatman__switch input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #21313f;
 }
 .profile__settings--vatman__switch input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
@@ -611,10 +611,10 @@ body {
 .profile__settings--vatman__switch input:checked + .slider:before {
   transform: translateX(11.8181818182px);
 }
-.profile__settings--vatman__switch::after {
-  content: "ACTIVAT";
+.profile__settings--vatman__switch ::after {
+  content: attr(data-after);
   font-weight: 700;
-  color: #2196f3;
+  color: #271a1a;
   position: absolute;
   left: 36;
 }
