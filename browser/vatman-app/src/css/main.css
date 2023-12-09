@@ -615,8 +615,8 @@ body {
   -ms-transform: translateX(11.8181818182px);
   transform: translateX(11.8181818182px);
 }
-.profile__settings--vatman__switch ::after {
-  content: attr(data-after);
+.profile__settings--vatman__switch::after {
+  content: attr(data-value);
   font-weight: 700;
   color: #271a1a;
   position: absolute;

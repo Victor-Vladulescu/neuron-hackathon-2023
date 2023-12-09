@@ -1,22 +1,23 @@
+// Find the checkbox input
+const locationCheckbox = document.getElementById('locationCheckbox');
 
-    const locationCheckbox = document.getElementById('locationCheckbox');
-    
-    function openChange(){
-    const buton = document.getElementById('locationStatus');
+function openChange() {
+  // Find the label element that contains the pseudo-element after
+  const button = document.getElementById('locationStatus');
 
-    if(locationCheckbox.checked){
-        console.log("Hello from Florin1");
-        buton.setAttribute("data-after", "ACTIVAT");
-    }
-        else {
-            console.log("Hello from Florin2");
-            buton.setAttribute("data-after",
-            "sdfd");
-        }
+  // If input is checked
+  if (locationCheckbox.checked) {
+    console.log('Hello from Florin1');
+    //   Set after to "Activated"
+    button.setAttribute('data-value', 'ACTIVAT');
+  } else {
+    console.log('Hello from Florin2');
+    //   Otherwise set after to "Dectivated"
+    button.setAttribute('data-value', 'DEZACTIVAT');
+  }
+}
 
-    }
-    
-locationCheckbox.addEventListener('change', () => { 
-    openChange();
+// Only run the function on change of checkbox input
+locationCheckbox.addEventListener('change', () => {
+  openChange();
 });
-
