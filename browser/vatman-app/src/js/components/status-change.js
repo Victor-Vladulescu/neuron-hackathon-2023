@@ -3,29 +3,62 @@ const locationCheckbox = document.getElementById('locationCheckbox');
 
 // Find the text next to the input
 const locationStatusText = document.getElementById('locationStatusText');
+const locationStatus = document.getElementById('locationStatus');
 
-// Find the vehicle id select element
-const vehicleId = document.getElementById('vehicleId');
+// Find the vehicle ID in order to delete its value if location is disabled
+const selectElement = document.getElementById('vehicleId');
 
-function openChange() {
-  // Find the label element that contains the pseudo-element after
-  const button = document.getElementById('locationStatus');
-
-  // If input is checked
+function changeLocationSliderColor() {
+  // If vehicleId is selected
   if (locationCheckbox.checked) {
     //   Set to "Activated"
     locationStatusText.innerText = 'ACTIVAT';
     locationStatusText.classList.toggle('blue');
-    vehicleId.disabled = !vehicleId.disabled;
   } else {
     //   Otherwise set to "Dectivated"
     locationStatusText.innerText = 'DEZACTIVAT';
     locationStatusText.classList.toggle('blue');
-    vehicleId.disabled = !vehicleId.disabled;
   }
 }
 
 // Only run the function on change of checkbox input
 locationCheckbox.addEventListener('change', () => {
-  openChange();
+  changeLocationSliderColor();
+
+  // Remove the user as a vehicle if location is deactivated
+  if (locationStatusText.innerText === 'DEZACTIVAT') {
+    selectElement.value = '';
+
+    // if the send location button is not disabled, disable it
+    if (!locationCheckbox.disabled) {
+      locationCheckbox.disabled = !locationCheckbox.disabled;
+      locationStatus.style.filter = 'grayscale(100%)';
+    }
+  }
+});
+
+// If any vehicle is selected, activate the location button
+selectElement.addEventListener('change', () => {
+  if (selectElement.value !== '') {
+    // if there is a vehicle selected...
+    console.log('TRAM WAS SELECTED');
+
+    console.log(locationCheckbox.disabled);
+
+    // if the button is disabled, make sure you enable it
+    if (locationCheckbox.disabled) {
+      locationCheckbox.disabled = !locationCheckbox.disabled;
+      locationStatus.style.filter = 'none';
+    }
+  } else {
+    // if no vehicle is selected... Deactivate share location button
+    // if the send location button is not disabled
+    if (!locationCheckbox.disabled) {
+      locationCheckbox.disabled = !locationCheckbox.disabled;
+      locationStatus.style.filter = 'grayscale(100%)';
+      // Uncheck the box if vehicle is not selected
+      locationCheckbox.checked = false;
+      changeLocationSliderColor();
+    }
+  }
 });

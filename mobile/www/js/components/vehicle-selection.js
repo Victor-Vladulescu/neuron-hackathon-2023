@@ -5,8 +5,8 @@ const locationButton = document.getElementById("locationCheckbox");
 const selectElement = document.getElementById("vehicleId");
 
 var newValueMine;
-var sendLocationInterval
-var btnState = false
+var sendLocationInterval;
+var btnState = false;
 
 // Send the selected input function
 function sendOption() {
@@ -27,29 +27,25 @@ locationButton.addEventListener("change", () => {
   sendOption();
 
   if (btnState) {
-    btnState = false
-    clearInterval(sendLocationInterval)
-  }
-  else {
-    btnState = true
+    btnState = false;
+    clearInterval(sendLocationInterval);
+  } else {
+    btnState = true;
     sendLocationInterval = setInterval(() => sendLocation(), 2500);
   }
 });
 
 function sendLocation() {
-  fetch(
-    baseURL + "/vehicle/" + newValueMine + "/update",
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        latitude: currentLocation.coords.latitude,
-        longitude: currentLocation.coords.longitude,
-        timestamp: new Date().toISOString(),
-      }),
-    }
-  );
+  fetch(baseURL + "/vehicle/" + newValueMine + "/update", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: JSON.stringify({
+      latitude: currentLocation.coords.latitude,
+      longitude: currentLocation.coords.longitude,
+      timestamp: new Date().toISOString(),
+    }),
+  });
 }
