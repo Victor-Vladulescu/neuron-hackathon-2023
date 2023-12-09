@@ -3,7 +3,7 @@
   z-index: 10000;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: $primary-background;
   height: 100vh;
   width: 100%;
 
@@ -86,6 +86,14 @@
           display: inline;
         }
 
+        h3 {
+          color: red;
+          font-weight: 500;
+          font-size: 20px;
+
+          margin-top: 15px;
+        }
+
         svg {
           margin-right: 8px;
           margin-bottom: 5px;
@@ -112,7 +120,7 @@
 
     > ul:nth-child(1) {
       @include flex(column, flex-start, flex-start);
-      gap: 25px;
+      gap: 20px;
       font-size: 14px;
       margin-left: 16%;
       margin-top: 30px;
@@ -129,12 +137,157 @@
           }
 
           svg {
-            color: $svg-secondary;
+            color: #000;
             vertical-align: middle;
 
             margin-right: 8px;
             margin-bottom: 5px;
           }
+        }
+      }
+    }
+
+    // Vatman settings
+    &--vatman {
+      @include flex(column, flex-start, flex-start);
+      margin-top: 20px;
+
+      h2 {
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      select {
+        text-align: center;
+
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        color: #9c9c9c;
+
+        width: 100%;
+
+        border: none;
+        border-radius: 4px;
+
+        margin-bottom: 15px;
+
+        padding: 2px;
+
+        optgroup,
+        optgroup option {
+          text-align: left;
+          color: #000;
+        }
+
+        optgroup option:nth-child(even) {
+          background-color: #fcfcfc;
+        }
+
+        // Scrollbar
+        & {
+          /* width */
+          &::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          /* Track */
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          /* Handle */
+          &::-webkit-scrollbar-thumb {
+            background: #d9d9d9;
+            border-radius: 20px;
+            border-right: 7px solid #fff;
+          }
+        }
+      }
+
+      div {
+        color: $svg-secondary;
+        @include flex(row, flex-start, flex-start);
+        gap: 15px;
+
+        label {
+          font-size: 12px;
+        }
+      }
+
+      // Slider (https://www.w3schools.com/howto/howto_css_switch.asp)
+      &__switch {
+        // Change size without affecting aspect ratio
+        $multiplier: 1.1;
+        $size-a: calc(30px * 1 / $multiplier);
+        $size-b: calc(17px * 1 / $multiplier);
+        $size-1: calc(13px * 1 / $multiplier);
+        $size-2: calc(2px * 1 / $multiplier);
+
+        position: relative;
+        display: inline-block;
+        width: $size-a;
+        height: $size-b;
+
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+
+          &:before {
+            position: absolute;
+            content: '';
+            height: $size-1;
+            width: $size-1;
+            left: $size-2;
+            bottom: $size-2;
+            background-color: white;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+          }
+
+          /* Rounded sliders */
+          &.round {
+            border-radius: 34px;
+
+            &:before {
+              border-radius: 50%;
+            }
+          }
+        }
+
+        input {
+          &:checked + .slider {
+            background-color: #2196f3;
+          }
+
+          &:focus + .slider {
+            box-shadow: 0 0 1px #2196f3;
+          }
+
+          &:checked + .slider:before {
+            -webkit-transform: translateX($size-1);
+            -ms-transform: translateX($size-1);
+            transform: translateX($size-1);
+          }
+        }
+
+        &::after {
+          content: 'ACTIVAT';
+          font-weight: 700;
+          color: #2196f3;
+          position: absolute;
+          left: 36;
         }
       }
     }
@@ -153,11 +306,11 @@
         text-decoration: none;
 
         svg {
+          color: #000;
+
           margin-right: 8px;
           margin-bottom: 4px;
           vertical-align: middle;
-
-          color: $svg-secondary;
         }
       }
     }

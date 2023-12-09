@@ -8,7 +8,7 @@
   line-height: normal;
   width: 57%;
   height: 100%;
-  background-color: #fff;
+  background-color: $primary-background;
 
   // Profile hero section, clickable
   &__hero-section {
@@ -107,6 +107,13 @@
   &__navbar {
     height: 78%;
 
+    // Default SVG styles
+    svg {
+      color: #000;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+
     > ul {
       @include flex(column, flex-start, flex-start);
       gap: 15px;
@@ -114,12 +121,6 @@
 
       li {
         margin-left: 20px;
-
-        svg {
-          color: $svg-secondary;
-          vertical-align: middle;
-          margin-right: 15px;
-        }
 
         &:nth-last-child(1) {
           margin-bottom: 45px;
@@ -141,6 +142,33 @@
             // color: #515151;
             color: $secondary-blue;
           }
+        }
+      }
+    }
+
+    // Log-out and status items
+    &__log-out {
+      @include flex(column, flex-start, flex-start);
+      gap: 20px;
+
+      p svg,
+      a svg {
+        color: #000;
+        margin-bottom: 2px;
+      }
+
+      p {
+        color: #00821e;
+        position: relative;
+
+        &::before {
+          content: 'STATUS:';
+          font-size: 10px;
+          color: #9c9c9c;
+
+          position: absolute;
+          bottom: 100%;
+          left: 38px;
         }
       }
     }

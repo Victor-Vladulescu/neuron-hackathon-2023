@@ -262,6 +262,11 @@ body {
 .menu__navbar {
   height: 78%;
 }
+.menu__navbar svg {
+  color: #8f8f8f;
+  vertical-align: middle;
+  margin-right: 15px;
+}
 .menu__navbar > ul {
   display: flex;
   flex-flow: column;
@@ -272,11 +277,6 @@ body {
 }
 .menu__navbar > ul li {
   margin-left: 20px;
-}
-.menu__navbar > ul li svg {
-  color: #8f8f8f;
-  vertical-align: middle;
-  margin-right: 15px;
 }
 .menu__navbar > ul li:nth-last-child(1) {
   margin-bottom: 45px;
@@ -293,6 +293,9 @@ body {
 }
 .menu__navbar > ul li a:hover, .menu__navbar > ul li a:focus {
   color: #007ec5;
+}
+.menu__navbar__log-out a svg {
+  margin-bottom: 2px;
 }
 .menu__navbar .menu__navbar__dropdown-list {
   transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);

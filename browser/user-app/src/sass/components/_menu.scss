@@ -107,6 +107,13 @@
   &__navbar {
     height: 78%;
 
+    // Default SVG styles
+    svg {
+      color: $svg-secondary;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+
     > ul {
       @include flex(column, flex-start, flex-start);
       gap: 15px;
@@ -114,12 +121,6 @@
 
       li {
         margin-left: 20px;
-
-        svg {
-          color: $svg-secondary;
-          vertical-align: middle;
-          margin-right: 15px;
-        }
 
         &:nth-last-child(1) {
           margin-bottom: 45px;
@@ -142,6 +143,12 @@
             color: $secondary-blue;
           }
         }
+      }
+    }
+
+    &__log-out {
+      a svg {
+        margin-bottom: 2px;
       }
     }
 
