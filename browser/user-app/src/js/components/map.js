@@ -1,5 +1,3 @@
-
-
 import { map } from '../index';
 
 import { baseURL } from '../index';
@@ -7,11 +5,6 @@ import { baseURL } from '../index';
 someArray = [];
 vehicles = [];
 var markers = L.layerGroup().addTo(map);
-
-if(map.getZoom() <= 12)
-{
-  console.log("ahh");
-}
 
 let tramIcon = L.icon({
   iconUrl: require('../../img/orange-circle.png'),
