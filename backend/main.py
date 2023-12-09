@@ -18,6 +18,9 @@ api = Api(app)
 # must be mentioned in every endpoint
 baseURL = "/api"
 
+@app.route("/")
+def serve_static_red():
+    return send_from_directory('static', 'index.html')
 
 @app.route('/<path:path>')
 def serve_static(path):

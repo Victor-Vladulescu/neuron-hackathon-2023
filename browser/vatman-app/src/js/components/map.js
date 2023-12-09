@@ -2,8 +2,8 @@ import { map } from '../index';
 
 import { baseURL } from '../index';
 
-someArray = [];
-vehicles = [];
+let someArray = [];
+let vehicles = [];
 var markers = L.layerGroup().addTo(map);
 
 let tramIcon = L.icon({
