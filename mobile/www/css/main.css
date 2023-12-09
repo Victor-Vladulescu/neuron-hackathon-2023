@@ -575,9 +575,6 @@ body {
   font-weight: 700;
   margin-left: 22px;
 }
-.profile__settings--vatman__switch p.blue {
-  color: #0099ff;
-}
 .profile__settings--vatman__switch input {
   opacity: 0;
   width: 0;

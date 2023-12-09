@@ -13,11 +13,11 @@ function changeLocationSliderColor() {
   if (locationCheckbox.checked) {
     //   Set to "Activated"
     locationStatusText.innerText = 'ACTIVAT';
-    locationStatusText.classList.toggle('blue');
+    locationStatusText.style.color = '#0099ff';
   } else {
     //   Otherwise set to "Dectivated"
     locationStatusText.innerText = 'DEZACTIVAT';
-    locationStatusText.classList.toggle('blue');
+    locationStatusText.style.color = 'red';
   }
 }
 
@@ -29,21 +29,23 @@ locationCheckbox.addEventListener('change', () => {
   if (locationStatusText.innerText === 'DEZACTIVAT') {
     selectElement.value = '';
 
-    // if the send location button is not disabled, disable it
+    // and if the send location button is not disabled, disable it
     if (!locationCheckbox.disabled) {
       locationCheckbox.disabled = !locationCheckbox.disabled;
       locationStatus.style.filter = 'grayscale(100%)';
+
+      // Uncheck the box if vehicle is not selected
+      locationCheckbox.checked = false;
+      changeLocationSliderColor();
     }
   }
 });
 
 // If any vehicle is selected, activate the location button
 selectElement.addEventListener('change', () => {
+  // if value is not empty...
   if (selectElement.value !== '') {
     // if there is a vehicle selected...
-    console.log('TRAM WAS SELECTED');
-
-    console.log(locationCheckbox.disabled);
 
     // if the button is disabled, make sure you enable it
     if (locationCheckbox.disabled) {
@@ -52,7 +54,7 @@ selectElement.addEventListener('change', () => {
     }
   } else {
     // if no vehicle is selected... Deactivate share location button
-    // if the send location button is not disabled
+    // if the send location button is not disabled, make sure you disable it
     if (!locationCheckbox.disabled) {
       locationCheckbox.disabled = !locationCheckbox.disabled;
       locationStatus.style.filter = 'grayscale(100%)';

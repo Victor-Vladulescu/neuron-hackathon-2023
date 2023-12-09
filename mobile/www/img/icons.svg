@@ -118,7 +118,7 @@
         <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 36" id="location-pin">
           <path d="M12 0C5.372 0 0 5.372 0 12c0 10.652 12 24 12 24s12-13.348 12-24c0-6.628-5.372-12-12-12zm0 17a4 4 0 1 1 0-8 4 4 0 0 1 0 8z" fill="currentColor" />
         </symbol>
-        <symbol svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" id="info">
+        <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 50 50" id="info">
           <path d="M25 2C12.31 2 2 12.31 2 25s10.31 23 23 23 23-10.31 23-23S37.69 2 25 2zm0 2c11.61 0 21 9.39 21 21s-9.39 21-21 21S4 36.61 4 25 13.39 4 25 4zm0 7a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3zm-4 10v2h2v13h-2v2h8v-2h-2V21h-6z" fill="currentColor" />
         </symbol>
       </svg>
