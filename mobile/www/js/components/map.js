@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   tram.bindTooltip();
 
-  setInterval(someRequest, 2500);
+  setInterval(() => someRequest(), 2500);
 
   L.tileLayer(
     "https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}",
