@@ -5,11 +5,11 @@ const currentPosition = {
     latitude: 123,
     longitude: 321,
   },
-  timestamp: '2023-12-01T11:01:00.123Z',
+  timestamp: "2023-12-01T11:01:00.123Z",
 };
 
 // Vehicle ID Select Input
-const selectElement = document.getElementById('vehicleId');
+const selectElement = document.getElementById("vehicleId");
 
 var newValueMine;
 
@@ -18,17 +18,17 @@ function sendOption() {
   const selectedValue = selectElement.value;
   newValueMine = selectedValue;
 
-  if (selectedValue === '') {
-    console.log('No vehicle was selected');
-    localStorage.removeItem('tramInput');
+  if (selectedValue === "") {
+    console.log("No vehicle was selected");
+    localStorage.removeItem("tramInput");
   } else {
     console.log(`No° ${selectedValue} was selected`);
-    localStorage.setItem('tramInput', selectedValue);
+    localStorage.setItem("tramInput", selectedValue);
   }
 }
 
 // Run the function on each change of the input
-selectElement.addEventListener('change', () => {
+selectElement.addEventListener("change", () => {
   sendOption();
 
   setInterval(sendLocation(), 1000);
@@ -36,12 +36,12 @@ selectElement.addEventListener('change', () => {
 
 function sendLocation() {
   fetch(
-    'http://uav-easy-exams.xyz:5000/api/vehicle/' + newValueMine + '/update',
+    "http://uav-easy-exams.xyz:5000/api/vehicle/" + newValueMine + "/update",
     {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         latitude: currentPosition.coords.latitude,

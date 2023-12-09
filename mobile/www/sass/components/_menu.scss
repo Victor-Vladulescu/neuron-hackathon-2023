@@ -1,6 +1,6 @@
 .menu {
   position: absolute;
-  top: 0;
+  top: 0px;
   transition: left $transition-05;
   left: -57%;
   z-index: 10000;
@@ -16,7 +16,7 @@
     $ring-padding: 6px;
     $border-size: 1px;
 
-    background: #6ec3fa url('../img/small-profile-background.png') repeat-x;
+    background: #6ec3fa url("../img/small-profile-background.png") repeat-x;
     background-size: cover;
     @media screen and (min-width: 425px) {
       background-size: contain;
@@ -162,7 +162,7 @@
         position: relative;
 
         &::before {
-          content: 'STATUS:';
+          content: "STATUS:";
           font-size: 10px;
           color: #9c9c9c;
 

@@ -1,24 +1,20 @@
-import { map } from '../index.js';
+import { map } from "../index.js";
 
-import { baseURL } from '../index.js';
-
+import { baseURL } from "../index.js";
 
 let someArray = [];
 let vehicles = [];
-var markers 
+var markers;
 
-let tramIcon 
+let tramIcon;
 
-let tram 
+let tram;
 
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   markers = L.layerGroup().addTo(map);
 
   tramIcon = L.icon({
-    iconUrl: '../../img/orange-circle.png',
+    iconUrl: "../../img/orange-circle.png",
     iconSize: [14, 14], // size of the icon
     iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
   });
@@ -32,20 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(someRequest, 1000);
 
   L.tileLayer(
-    'https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}',
+    "https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}",
     {
       minZoom: 0,
       maxZoom: 18,
-      ext: 'png',
+      ext: "png",
     }
   ).addTo(map);
-
-})
-
-
-
-
-
+});
 
 function updateLocation() {
   if (someArray.length > 0) {
@@ -68,12 +58,12 @@ function updateLocation() {
     vehicles[i].marker
       .bindTooltip()
       .setTooltipContent(
-        'Numar: ' +
+        "Numar: " +
           vehicles[i].name +
-          '<br>' +
-          'Lat: ' +
+          "<br>" +
+          "Lat: " +
           vehicles[i].lat +
-          'Long: ' +
+          "Long: " +
           vehicles[i].lng
       )
       .openTooltip();
@@ -87,15 +77,14 @@ function updateLocation() {
 }
 
 function someRequest() {
-  fetch(baseURL + '/vehicles', {
-    method: 'GET',
-    origin: '*',
+  fetch(baseURL + "/vehicles", {
+    method: "GET",
+    origin: "*",
   })
-    .then(response => response.json())
-    .then(body => {
+    .then((response) => response.json())
+    .then((body) => {
       someArray = body.vehicles;
     });
 
   updateLocation();
 }
-

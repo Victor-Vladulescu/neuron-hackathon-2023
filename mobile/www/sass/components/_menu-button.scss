@@ -4,8 +4,8 @@
   transition: $transition-05;
   @include flex(row, center, center);
   position: absolute;
-  top: 15;
-  left: 15;
+  top: 15px;
+  left: 15px;
   padding: 6px;
   z-index: 10000;
   width: 30px;
