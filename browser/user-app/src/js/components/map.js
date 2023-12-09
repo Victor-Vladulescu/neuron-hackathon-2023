@@ -12,7 +12,10 @@ let tramIcon = L.icon({
   iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
 });
 
+
+
 function updateLocation() {
+  console.log(vehicles);
   if (someArray.length > 0) {
     for (var i = 0; i < someArray.length; i++) {
       vehicles[i] = {
@@ -65,18 +68,26 @@ function updateLocation() {
   }
 }
 
-function someRequest() {
-  fetch(baseURL + '/vehicles', {
-    method: 'GET',
-    origin: '*',
-  })
-    .then(response => response.json())
-    .then(body => {
-      someArray = body.vehicles;
-    });
+async function someRequest() {
+  
+    try {
+      const response = await fetch(baseURL + '/vehicles');
+      const json = await response.json();
+      //console.log(json);
+      someArray = json.vehicles;
+    }
+    catch(error) {
+      console.log(error);
+    }
+    
+    updateLocation();
 
-  updateLocation();
-}
+    console.log(vehicles);
+
+    // updateLocation();
+  } 
+
+  
 
 setInterval(someRequest, 1000);
 
