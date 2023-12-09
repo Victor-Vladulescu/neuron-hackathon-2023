@@ -43,7 +43,13 @@
       <li class="profile__settings--vatman">
         <h2>Partajează Locație</h2>
 
-        <select name="vehicleId" id="vehicleId">
+        <label class="profile__settings--vatman__switch" id="locationStatus">
+          <input type="checkbox" id="locationCheckbox" />
+          <span class="slider round"></span>
+          <p id="locationStatusText">DEZACTIVAT</p>
+        </label>
+
+        <select name="vehicleId" id="vehicleId" disabled>
           <option value="">-- Selectează Vehicul --</option>
           <div>
             <optgroup label="Tramvaie">
@@ -103,16 +109,6 @@
             partaja locația și a-i vedea ruta
           </label>
         </div>
-      </li>
-      <li>
-        <label
-          class="profile__settings--vatman__switch"
-          id="locationStatus"
-          data-value="DEZACTIVAT"
-        >
-          <input type="checkbox" id="locationCheckbox" />
-          <span class="slider round"></span>
-        </label>
       </li>
     </ul>
 

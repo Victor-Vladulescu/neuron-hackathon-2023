@@ -513,10 +513,9 @@ body {
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 20px;
+  gap: 15px;
 }
 .profile__settings--vatman h2 {
-  margin-bottom: 15px;
   font-weight: 700;
 }
 .profile__settings--vatman select {
@@ -526,7 +525,6 @@ body {
   width: 100%;
   border: none;
   border-radius: 4px;
-  margin-bottom: 15px;
   padding: 2px;
 }
 .profile__settings--vatman select optgroup,
@@ -566,9 +564,19 @@ body {
 }
 .profile__settings--vatman__switch {
   position: relative;
-  display: inline-block;
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
   width: 27.2727272727px;
   height: 15.4545454545px;
+}
+.profile__settings--vatman__switch p {
+  color: red;
+  font-weight: 700;
+  margin-left: 22px;
+}
+.profile__settings--vatman__switch p.blue {
+  color: #0099ff;
 }
 .profile__settings--vatman__switch input {
   opacity: 0;
@@ -582,7 +590,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: red;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   /* Rounded sliders */
@@ -605,7 +613,7 @@ body {
   border-radius: 50%;
 }
 .profile__settings--vatman__switch input:checked + .slider {
-  background-color: #21313f;
+  background-color: #0099ff;
 }
 .profile__settings--vatman__switch input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
@@ -614,13 +622,6 @@ body {
   -webkit-transform: translateX(11.8181818182px);
   -ms-transform: translateX(11.8181818182px);
   transform: translateX(11.8181818182px);
-}
-.profile__settings--vatman__switch::after {
-  content: attr(data-value);
-  font-weight: 700;
-  color: #271a1a;
-  position: absolute;
-  left: 36;
 }
 .profile__settings > ul:nth-child(2) {
   display: flex;
