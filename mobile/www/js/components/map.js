@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(() => someRequest(), 2500);
 
   L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
+    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
     {
       minZoom: 0,
       maxZoom: 18,
