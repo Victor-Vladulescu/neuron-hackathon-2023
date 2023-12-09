@@ -73,7 +73,7 @@ function someRequest() {
 setInterval(someRequest, 1000);
 
 L.tileLayer(
-  'https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}',
+  "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}",
   {
     minZoom: 0,
     maxZoom: 18,
