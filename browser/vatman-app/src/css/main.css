@@ -583,6 +583,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
+  -webkit-transition: 0.4s;
   transition: 0.4s;
   /* Rounded sliders */
 }
@@ -594,6 +595,7 @@ body {
   left: 1.8181818182px;
   bottom: 1.8181818182px;
   background-color: white;
+  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 .profile__settings--vatman__switch .slider.round {
@@ -609,6 +611,8 @@ body {
   box-shadow: 0 0 1px #2196f3;
 }
 .profile__settings--vatman__switch input:checked + .slider:before {
+  -webkit-transform: translateX(11.8181818182px);
+  -ms-transform: translateX(11.8181818182px);
   transform: translateX(11.8181818182px);
 }
 .profile__settings--vatman__switch::after {
