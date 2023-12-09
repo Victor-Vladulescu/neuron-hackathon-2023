@@ -7,12 +7,13 @@ vehicles = [];
 var markers = L.layerGroup().addTo(map);
 
 let tramIcon = L.icon({
+  iconUrl: "./orange-circle.png",
   iconSize: [30, 30], // size of the icon
   iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
 });
 
 function updateLocation() {
-  console.log(vehicles);
+  //console.log(vehicles);
   if (someArray.length > 0) {
     for (var i = 0; i < someArray.length; i++) {
       vehicles[i] = {
@@ -23,11 +24,12 @@ function updateLocation() {
         lng: someArray[i].longitude,
         marker: L.marker([46.192717706185675, 21.30671085657869], {
           opacity: 0.01,
-          icon: tramIcon,
+          //icon: tramIcon,
         }),
       };
     }
   }
+  //console.log(markers);
   markers.clearLayers();
 
   for (var i = 0; i < someArray.length; i++) {
@@ -50,17 +52,18 @@ function updateLocation() {
         })
         .openTooltip();
     }
+    //console.log(markers);
 
     markers.addLayer(vehicles[i].marker);
     var lat = vehicles[i].lat;
     var lng = vehicles[i].lng;
     var newLatLng = new L.LatLng(lat, lng);
 
-    console.log(vehicles[i].marker.getLatLng());
-    if (vehicles[i].marker.getLatLng() == newLatLng) {
-      console.log("asdj");
-      return;
-    }
+    // console.log(vehicles[i].marker.getLatLng());
+    // if (vehicles[i].marker.getLatLng() == newLatLng) {
+    //   console.log("asdj");
+    //   return;
+    // }
     vehicles[i].marker.setLatLng(newLatLng);
     //console.log(vehicles[i].marker);
   }
