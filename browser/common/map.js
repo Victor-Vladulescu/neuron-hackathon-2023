@@ -23,8 +23,8 @@ function updateLocation() {
         lat: someArray[i].latitude,
         lng: someArray[i].longitude,
         marker: L.marker([46.192717706185675, 21.30671085657869], {
-          opacity: 0.01,
-          //icon: tramIcon,
+          // opacity: 0.01,
+          icon: tramIcon,
         }),
       };
     }
