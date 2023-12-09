@@ -17,7 +17,8 @@
     "cordova-browser": "^7.0.0",
     "cordova-plugin-android-permissions": "^1.1.5",
     "cordova-plugin-device": "^2.1.0",
-    "cordova-plugin-geolocation": "^5.0.0"
+    "cordova-plugin-geolocation": "^5.0.0",
+    "posthtml-include": "^1.7.4"
   },
   "cordova": {
     "platforms": [

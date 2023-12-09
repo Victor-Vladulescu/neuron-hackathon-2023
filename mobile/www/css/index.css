@@ -1,9 +1,0 @@
-.column {
-    display: flex;
-    flex-direction: column;
-
-    > * {
-        max-width: 300px;
-        margin-bottom: 5px;
-    }
-}

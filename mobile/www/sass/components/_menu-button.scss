@@ -1,0 +1,23 @@
+.side-menu-button {
+  $side-menu-color: #000;
+
+  transition: $transition-05;
+  @include flex(row, center, center);
+  position: absolute;
+  top: 15;
+  left: 15;
+  padding: 6px;
+  z-index: 10000;
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid $side-menu-color;
+  border-radius: 50px;
+  outline: none;
+
+  background-color: #00000000;
+
+  svg {
+    color: $side-menu-color;
+  }
+}

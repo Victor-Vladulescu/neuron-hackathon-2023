@@ -1,0 +1,225 @@
+.menu {
+  position: absolute;
+  top: 0;
+  transition: left $transition-05;
+  left: -57%;
+  z-index: 10000;
+  font-size: 14px;
+  line-height: normal;
+  width: 57%;
+  height: 100%;
+  background-color: $primary-background;
+
+  // Profile hero section, clickable
+  &__hero-section {
+    $img-size: 61px;
+    $ring-padding: 6px;
+    $border-size: 1px;
+
+    background: #6ec3fa url('../img/small-profile-background.png') repeat-x;
+    background-size: cover;
+    @media screen and (min-width: 425px) {
+      background-size: contain;
+    }
+
+    @include flex(column, center, center);
+    width: 100%;
+    height: 22%;
+
+    // Image and its effects
+    &__image {
+      &-shadow {
+        display: flex;
+        justify-content: center;
+
+        background-image: linear-gradient(
+          180deg,
+          #09f 0%,
+          rgba(93, 185, 246, 0.01) 0.01%,
+          #95d5ff 150%
+        );
+
+        // size is 35% bigger than the size of the image
+        width: calc($img-size * 135 / 100);
+        height: calc($img-size * 135 / 100);
+
+        border-radius: $img-size;
+      }
+
+      &-ring {
+        position: relative;
+
+        width: calc($img-size + $ring-padding);
+        height: calc($img-size + $ring-padding);
+
+        border: $border-size solid $secondary-blue;
+        border-radius: $img-size;
+
+        padding: $ring-padding;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+
+          width: $img-size;
+          height: $img-size;
+
+          border-radius: $img-size;
+        }
+      }
+    }
+
+    // Caption text
+    &__caption {
+      font-size: 14px;
+
+      margin-top: 10px;
+
+      a,
+      a:visited {
+        color: #000;
+        font-weight: 700;
+        text-decoration: none;
+
+        svg {
+          margin-left: 5px;
+        }
+
+        &:hover,
+        &:focus {
+          color: #000;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Clickable profile
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  // Navbar
+  &__navbar {
+    height: 78%;
+
+    // Default SVG styles
+    svg {
+      color: #000;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+
+    > ul {
+      @include flex(column, flex-start, flex-start);
+      gap: 15px;
+      height: 100%;
+
+      li {
+        margin-left: 20px;
+
+        &:nth-last-child(1) {
+          margin-bottom: 45px;
+          margin-top: auto;
+        }
+
+        &:first-child {
+          margin-top: 30px;
+        }
+
+        a {
+          transition: $transition-025;
+          color: #000;
+          text-decoration: none;
+          text-align: center;
+
+          &:hover,
+          &:focus {
+            // color: #515151;
+            color: $secondary-blue;
+          }
+        }
+      }
+    }
+
+    // Log-out and status items
+    &__log-out {
+      @include flex(column, flex-start, flex-start);
+      gap: 20px;
+
+      p svg,
+      a svg {
+        color: #000;
+        margin-bottom: 2px;
+      }
+
+      p {
+        color: #00821e;
+        position: relative;
+
+        &::before {
+          content: 'STATUS:';
+          font-size: 10px;
+          color: #9c9c9c;
+
+          position: absolute;
+          bottom: 100%;
+          left: 38px;
+        }
+      }
+    }
+
+    .menu__navbar__dropdown-list {
+      transition: $transition-05;
+
+      @include flex(column, flex-start, flex-start);
+      gap: 15px;
+
+      li:nth-child(1) {
+        margin: 15px 0 0 0;
+        animation-duration: 250ms;
+        animation-name: animate-fade;
+        animation-fill-mode: backwards;
+        animation-timing-function: ease-in-out;
+      }
+
+      li:nth-last-child(1) {
+        animation-duration: 250ms;
+        animation-delay: 250ms;
+        animation-name: animate-fade;
+        animation-fill-mode: backwards;
+        animation-timing-function: ease-in-out;
+        margin: 0;
+      }
+
+      @keyframes animate-fade {
+        0% {
+          opacity: 0;
+          transform: translateY(-20%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+}
+
+// Javascript schedule button animation
+#dropdownButton {
+  transition: transform $transition-05;
+}
+#dropdownList {
+  transition: $transition-05;
+}
+.dropdownAnimation {
+  transform: rotate(90deg);
+}
+.dropdownVisibility {
+  display: none;
+}
