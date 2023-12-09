@@ -10,6 +10,7 @@ function openChange() {
     console.log('Hello from Florin1');
     //   Set after to "Activated"
     button.setAttribute('data-value', 'ACTIVAT');
+    button.setAttribute('color','#c80d0d');
   } else {
     console.log('Hello from Florin2');
     //   Otherwise set after to "Dectivated"
