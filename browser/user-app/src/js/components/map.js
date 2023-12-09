@@ -1,3 +1,5 @@
+
+
 import { map } from '../index';
 
 import { baseURL } from '../index';
@@ -6,17 +8,16 @@ someArray = [];
 vehicles = [];
 var markers = L.layerGroup().addTo(map);
 
+if(map.getZoom() <= 12)
+{
+  console.log("ahh");
+}
+
 let tramIcon = L.icon({
   iconUrl: require('../../img/orange-circle.png'),
-  iconSize: [14, 14], // size of the icon
-  iconAnchor: [7, 7], // point of the icon which will correspond to marker's location
+  iconSize: [30, 30], // size of the icon
+  iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
 });
-
-let tram = L.marker([46.192717706185675, 21.30671085657869], {
-  icon: tramIcon,
-});
-
-tram.bindTooltip();
 
 function updateLocation() {
   if (someArray.length > 0) {
@@ -28,7 +29,8 @@ function updateLocation() {
         lat: someArray[i].latitude,
         lng: someArray[i].longitude,
         marker: L.marker([46.192717706185675, 21.30671085657869], {
-          icon: tramIcon,
+          opacity: 0.01,
+          icon: tramIcon
         }),
       };
     }
@@ -36,24 +38,37 @@ function updateLocation() {
   markers.clearLayers();
 
   for (var i = 0; i < someArray.length; i++) {
-    vehicles[i].marker
-      .bindTooltip()
-      .setTooltipContent(
-        'Numar: ' +
-          vehicles[i].name +
-          '<br>' +
-          'Lat: ' +
-          vehicles[i].lat +
-          'Long: ' +
-          vehicles[i].lng
-      )
+    if(map.getZoom() <= 12) {
+      vehicles[i].marker
+      .bindTooltip("",
+      {
+        direction: 'center',
+        permanent: true,
+        offset: [0,0],
+        className: 'my-leaflet-tooltip'
+      })
       .openTooltip();
+    }
+    else
+    {
+      vehicles[i].marker
+      .bindTooltip(vehicles[i].name,
+      {
+        direction: 'center',
+        permanent: true,
+        // offset: [0,0],
+        className: 'my-leaflet-tooltip'
+      })
+      .openTooltip();
+    }
+    
     markers.addLayer(vehicles[i].marker);
     var lat = vehicles[i].lat;
     var lng = vehicles[i].lng;
     var newLatLng = new L.LatLng(lat, lng);
 
     vehicles[i].marker.setLatLng(newLatLng);
+    //console.log(vehicles[i].marker);
   }
 }
 
@@ -80,3 +95,4 @@ L.tileLayer(
     ext: 'png',
   }
 ).addTo(map);
+
