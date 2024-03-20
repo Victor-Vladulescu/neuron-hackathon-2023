@@ -2,10 +2,10 @@
 This repository contains team Neuron's project submitted to [Hack4Arad](https://hack4arad.uav.ro/), the 2nd edition hackathon event organized by Aurel Vlaicu University in December 2023.  
 The project is a prototype for a Public Transport Tracking app, which would have two types of users:
 
-1. Passengers
+1. **Passengers**  
    Anyone would be able to view the live map through their browsers, or by downloading the mobile app. Passengers would be able to create an account and buy tickets for buses and trams. 
 
-2. Tram / Bus drivers
+2. **Tram / Bus drivers**   
    Drivers would download the mobile application and send their device's geolocation to the server via their internet connection. The location of their phone would coincide with the location of their vehicle.
 
 ## Proof of running instance and app download
